@@ -22,7 +22,7 @@ app.use(express.static('./dist/frontend'));
 // app.use('/blogapi',blogapi);
 
 // get blogger info
-app.get('/api/blogapi/bloggerinfo', async(req,res) =>{
+app.get('/api/bloggerinfo', async(req,res) =>{
     try{
         const bloggerDetails = await blogger.find().limit(1);
         res.send(bloggerDetails);
@@ -33,7 +33,7 @@ app.get('/api/blogapi/bloggerinfo', async(req,res) =>{
 })
 
 // post blogger info through thunderclient
-app.post('/api/blogapi/bloggerinfo', async (req,res)=>{
+app.post('/api/bloggerinfo', async (req,res)=>{
     try{
         let info ={
             name : req.body.name,
@@ -52,7 +52,7 @@ app.post('/api/blogapi/bloggerinfo', async (req,res)=>{
 })
 
 // add follower or update follower count
-app.put('/api/blogapi/bloggerinfo', async (req,res)=>{
+app.put('/api/bloggerinfo', async (req,res)=>{
     try{
         let item = {
             name : req.body.name,
@@ -71,7 +71,7 @@ app.put('/api/blogapi/bloggerinfo', async (req,res)=>{
 })
 
 //post blog info with comments through thunderclient
-app.post('/api/blogapi/bloginfo', async (req,res)=>{
+app.post('/api/bloginfo', async (req,res)=>{
     try{
         let info ={
             title : req.body.title,
@@ -90,7 +90,7 @@ app.post('/api/blogapi/bloginfo', async (req,res)=>{
 })
 
 // get bloglist
-app.get('/api/blogapi/bloglist', async (req,res) =>{
+app.get('/api/bloglist', async (req,res) =>{
     try{
         let blogDetails = await blog.find().sort({date:-1});
         res.send(blogDetails);
