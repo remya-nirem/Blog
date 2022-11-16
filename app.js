@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const logger = require('morgan');
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 require('./middlewares/mongoDB');
 
 const blogger = require('./models/blogger');
@@ -106,6 +106,6 @@ app.get('/*', function(req, res) {
 });   
 
 app.listen(PORT,() => {
-    console.log("server listening to port 3000");
+    console.log(`server listening to port ${PORT}`);
 });
 
