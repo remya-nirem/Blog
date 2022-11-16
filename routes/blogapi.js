@@ -5,7 +5,7 @@ const blogger = require('../models/blogger');
 const blog = require('../models/blog');
 
 // get blogger info
-router.get('/api/blogapi/bloggerinfo', async(req,res) =>{
+router.get('/bloggerinfo', async(req,res) =>{
     try{
         const bloggerDetails = await blogger.find().limit(1);
         res.send(bloggerDetails);
@@ -16,7 +16,7 @@ router.get('/api/blogapi/bloggerinfo', async(req,res) =>{
 })
 
 // post blogger info through thunderclient
-router.post('/api/blogapi/bloggerinfo', async (req,res)=>{
+router.post('/bloggerinfo', async (req,res)=>{
     try{
         let info ={
             name : req.body.name,
@@ -35,7 +35,7 @@ router.post('/api/blogapi/bloggerinfo', async (req,res)=>{
 })
 
 // add follower or update follower count
-router.put('/api/blogapi/bloggerinfo', async (req,res)=>{
+router.put('/bloggerinfo', async (req,res)=>{
     try{
         let item = {
             name : req.body.name,
@@ -54,7 +54,7 @@ router.put('/api/blogapi/bloggerinfo', async (req,res)=>{
 })
 
 //post blog info with comments through thunderclient
-router.post('/api/blogapi/bloginfo', async (req,res)=>{
+router.post('/bloginfo', async (req,res)=>{
     try{
         let info ={
             title : req.body.title,
@@ -73,7 +73,7 @@ router.post('/api/blogapi/bloginfo', async (req,res)=>{
 })
 
 // get bloglist
-router.get('/api/blogapi/bloglist', async (req,res) =>{
+router.get('/bloglist', async (req,res) =>{
     try{
         let blogDetails = await blog.find().sort({date:-1});
         res.send(blogDetails);
@@ -82,7 +82,6 @@ router.get('/api/blogapi/bloglist', async (req,res) =>{
         console.log(error);
     }
 })
-
 
 
 module.exports = router;
